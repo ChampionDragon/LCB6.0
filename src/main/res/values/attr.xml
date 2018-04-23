@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--++++++++++++  gridPasswordView的自定义属性 ++++++++++++++-->
+    <declare-styleable name="gridPasswordView">
+        <attr name="gpvTextColor" format="color|reference"/>
+        <attr name="gpvTextSize" format="dimension"/>
+        <attr name="gpvLineColor" format="color"/>文字框边界颜色
+        <attr name="gpvGridColor" format="color"/>文字框内部颜色
+        <attr name="gpvLineWidth" format="dimension"/>文字框边界长度
+        <attr name="gpvPasswordLength" format="integer"/>设定文字框几个
+        <attr name="gpvPasswordTransformation" format="string"/>密码覆盖的文字
+        <attr name="gpvPasswordType" format="enum">
+            <enum name="numberPassword" value="0"/>
+            <enum name="textPassword" value="1"/>
+            <enum name="textVisiblePassword" value="2"/>
+            <enum name="textWebPassword" value="3"/>
+        </attr>
+    </declare-styleable>
+
+
+</resources>

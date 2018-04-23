@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.lcb.one">
+
+    <!-- 打电话的权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- 使用摄像头的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/> <!-- 手电筒 -->
+
+
+    <!-- +++++++++++++++++++++++++++++++地图+++++++++++++++++++++++++++++++++++++++++++ -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 挂载、反挂载外部文件系统 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <!-- 银联支付 -->
+    <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD"/>
+    <uses-permission android:name="android.permission.NFC"/>
+
+    <uses-feature android:name="android.hardware.nfc.hce"/>
+
+    <application
+        android:name=".base.BaseApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- ++++++++++++++++++++++++++++++++++   百度地图   +++++++++++++++++++++++++++++++ -->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="LkLT5VoogXiktujkseGL1EDdG44mtu51"/>
+        <!-- 百度地图服务 -->
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+        <!-- ++++++++++++++++++++++++++++++++++   百度地图结尾   +++++++++++++++++++++++++++++++ -->
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- +++++++++++++++++++++++++++++++  银联支付 +++++++++++++++++++++++++++++++++++++++ -->
+        <!-- 安卓系统与sim卡交互需要用到这个包 -->
+        <uses-library
+            android:name="org.simalliance.openmobileapi"
+            android:required="true"/>
+
+        <activity android:name=".pay.unionpay.JARActivity"/>
+        <activity
+            android:name="com.unionpay.uppay.PayActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.unionpay.UPPayWapActivity"
+            android:configChanges="orientation|keyboardHidden|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <!-- +++++++++++++++++++++++++++++++++++++++    支付宝    ++++++++++++++++++++++++++++++++++ -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"/>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"/>
+
+        <!-- 微信支付回调Activity -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.PermissionActivity"/>
+        <activity android:name=".map.LocationActivity"/>
+        <activity android:name=".map.MarkerActivity"/>
+        <activity android:name=".map.PoiSearchActivity"/>
+        <activity android:name=".map.NaviActivity"/>
+        <activity android:name=".map.GuideActivity"/>
+        <activity android:name=".pay.RechargeActivity"/>
+        <activity
+            android:name=".activity.GPVActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"/>
+        <activity android:name=".activity.CodeCreateActivity"/>
+        <activity android:name=".zxing.main.MipcaActivityCapture"/>
+        <activity android:name=".activity.AppInformationActivity">
+        </activity>
+    </application>
+
+</manifest>

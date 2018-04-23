@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg_background"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/tt"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:id="@+id/back_pay"
+            style="@style/tt_iv"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/title_im"/>
+
+        <TextView
+            style="@style/tt_tv"
+            android:text="选择支付方式"
+            android:layout_alignBottom="@+id/back_pay"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_pay_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="支付停车费-嘉华大厦停车场"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_pay_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="￥--"
+        android:textColor="@android:color/black"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="请选择支付方式"
+        android:textColor="@color/text_gray"
+        android:textSize="14sp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_pay_wxpay"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/iv_pay_wxpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_pay_wxpay"/>
+
+        <TextView
+            android:id="@+id/tv_pay_wxpay_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_pay_wxpay"
+            android:layout_toRightOf="@+id/iv_pay_wxpay"
+            android:gravity="center"
+            android:text="微信支付"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_pay_wxpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/cb_pay_wxpay"
+            android:layout_toStartOf="@+id/cb_pay_wxpay"
+            android:text="￥--"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"/>
+
+        <CheckBox
+            android:id="@+id/cb_pay_wxpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignLeft="@+id/tv_pay_wxpay_name"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/tv_pay_wxpay_name"
+            android:background="@color/bg_gray"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_pay_alipay"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/iv_pay_alipay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_pay_alipay"/>
+
+        <TextView
+            android:id="@+id/tv_pay_alipay_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/iv_pay_alipay"
+            android:layout_toRightOf="@+id/iv_pay_alipay"
+            android:gravity="center"
+            android:text="支付宝支付"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/tv_pay_alipay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/cb_pay_alipay"
+            android:layout_toStartOf="@+id/cb_pay_alipay"
+            android:text="￥--"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"/>
+
+        <CheckBox
+            android:id="@+id/cb_pay_alipay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="false"/>
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:id="@+id/bt_recharge_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:background="@drawable/btn_bg"
+        android:text="立即支付"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>
