@@ -4,10 +4,44 @@
 +++++++++++++++++++++++++++++++ 程序运行效果图 +++++++++++++++++++++++++
 
 
-##  点击地图显示详细地址
+##  主界面
 
-![程序的演示图片](https://github.com/ChampionDragon/parking/blob/master/UI/1.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/0.png)
 
-##  官方自带图标
+##  地图定位
 
-![程序的演示图片](https://github.com/ChampionDragon/parking/blob/master/UI/2.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/1.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/2.png)
+
+##  点击屏幕创建小图标
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/3.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/4.png)
+
+##  支付界面DEMO
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/5.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/6.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/7.png)
+
+##  自定义密码测试输入框
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/8.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/9.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/10.png)
+
+##  二维码的生成和扫描
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/12.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/11.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/13.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/14.png)
+
+##  APP和系统的信息
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/15.png)
+
+##  二维码的生成和扫描
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/16.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/17.png)
