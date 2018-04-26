@@ -373,7 +373,6 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.poi_search:
                 city();
                 break;

@@ -12,6 +12,7 @@ import com.lcb.one.activity.AppInformationActivity;
 import com.lcb.one.activity.CodeCreateActivity;
 import com.lcb.one.activity.GPVActivity;
 import com.lcb.one.activity.PermissionActivity;
+import com.lcb.one.activity.RvStrTwoActivity;
 import com.lcb.one.map.LocationActivity;
 import com.lcb.one.map.MarkerActivity;
 import com.lcb.one.map.NaviActivity;
@@ -44,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mListView = (ListView) findViewById(R.id.main_lv);
         mListView.setAdapter(new SimpleAdapter(this, getData(),
-                android.R.layout.simple_list_item_1, new String[]{"title"},
-                new int[]{android.R.id.text1}));
+                android.R.layout.simple_list_item_1, new String[]{"title"}, new int[]{android.R.id.text1}));
         mListView.setOnItemClickListener(itemClickListener);
-
     }
 
 
@@ -63,12 +62,12 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "自定义密码输入框测试", new Intent(this, GPVActivity.class));
         addItem(myData, "生成和扫描二维码", new Intent(this, CodeCreateActivity.class));
         addItem(myData, "APP和系统的信息", new Intent(this, AppInformationActivity.class));
+        addItem(myData, "RecyclerView二级Strings列表", new Intent(this, RvStrTwoActivity.class));
 
         return myData;
     }
 
-    private void addItem(List<Map<String, Object>> data, String name,
-                         Intent intent) {
+    private void addItem(List<Map<String, Object>> data, String name, Intent intent) {
         Map<String, Object> temp = new HashMap<>();
         temp.put("title", name);
         temp.put("intent", intent);
@@ -80,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            Map<String, Object> map = (Map<String, Object>) mListView
-                    .getItemAtPosition(position);
-//			Logs.d(map + "  " + position);
+            Map<String, Object> map = (Map<String, Object>) mListView.getItemAtPosition(position);
             Intent intent = (Intent) map.get("intent");
             startActivity(intent);
         }
