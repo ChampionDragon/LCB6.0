@@ -13,6 +13,7 @@ import com.lcb.one.activity.CodeCreateActivity;
 import com.lcb.one.activity.GPVActivity;
 import com.lcb.one.activity.PermissionActivity;
 import com.lcb.one.activity.RvStrTwoActivity;
+import com.lcb.one.activity.Thirdlogin;
 import com.lcb.one.map.LocationActivity;
 import com.lcb.one.map.MarkerActivity;
 import com.lcb.one.map.NaviActivity;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "生成和扫描二维码", new Intent(this, CodeCreateActivity.class));
         addItem(myData, "APP和系统的信息", new Intent(this, AppInformationActivity.class));
         addItem(myData, "RecyclerView二级Strings列表", new Intent(this, RvStrTwoActivity.class));
-
+        addItem(myData, "第三方登录", new Intent(this, Thirdlogin.class));
         return myData;
     }
 

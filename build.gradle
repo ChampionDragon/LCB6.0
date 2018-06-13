@@ -1,10 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'lcb6.0的钥匙'
+            keyPassword '171211'
+            storeFile file('C:/Users/Administrator/Desktop/项目签名/lcb6.jks')
+            storePassword '171211'
+        }
+    }
+
     compileSdkVersion 25
     buildToolsVersion "27.0.2"
-
     defaultConfig {
+        multiDexEnabled  true
         applicationId "com.lcb.one"
         minSdkVersion 17
         targetSdkVersion 25
@@ -38,4 +47,9 @@ dependencies {
     compile files('libs/volley.jar')
     compile 'com.google.code.gson:gson:2.3'
     compile files('libs/zxing.jar')
+    compile files('libs/open_sdk_r5793_lite.jar')
+    compile files('libs/okhttp-3.2.0.jar')
+    compile files('libs/okhttputils-2_6_2.jar')
+    compile files('libs/okio-1.7.0.jar')
+    compile files('libs/wechat-sdk-android-with-mta-1.3.4.jar')
 }

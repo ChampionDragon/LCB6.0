@@ -73,11 +73,11 @@ public class BaseActivity extends AppCompatActivity {
                     //存放没授权的权限
                     List<String> deniedPermissions = new ArrayList<>();
                     for (int i = 0; i < grantResults.length; i++) {
-                        int grantResult = grantResults[i];
-                        String permission = permissions[i];
-                        if (grantResult != PackageManager.PERMISSION_GRANTED) {
-                            deniedPermissions.add(permission);
-                        }
+                            int grantResult = grantResults[i];
+                            String permission = permissions[i];
+                            if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                                deniedPermissions.add(permission);
+                            }
                     }
                     if (deniedPermissions.isEmpty()) {
                         //说明都授权了
@@ -91,8 +91,6 @@ public class BaseActivity extends AppCompatActivity {
                 break;
         }
     }
-
-
 
 
 }

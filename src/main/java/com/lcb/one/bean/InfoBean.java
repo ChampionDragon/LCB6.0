@@ -30,4 +30,6 @@ public class InfoBean {
         this.key = key;
         this.value = value;
     }
+
+
 }

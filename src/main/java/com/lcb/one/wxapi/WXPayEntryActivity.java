@@ -375,7 +375,7 @@ public class WXPayEntryActivity extends AppCompatActivity implements
         public void showPayResultDialog(final PayResult payResult,
                                         final String prodType) {
 
-            Log.d("lcb", tag+"   " + payResult + "  " + prodType);
+            Log.d("lcb", tag + "   " + payResult + "  " + prodType);
 
             // 隐藏payDialog
             mActivity.dismissDialog();

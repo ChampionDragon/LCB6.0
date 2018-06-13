@@ -23,7 +23,7 @@ import java.util.List;
 
 public class PermissionActivity extends BaseActivity implements View.OnClickListener {
     private static final int REQUEST_CODE = 1;
-    String tag = "PermissionActivity";
+    private String tag = "PermissionActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.permission_btn:
-//                doByActivity();
-                doByBaseActivity();
+                doByActivity();
+//                doByBaseActivity();
                 break;
         }
     }
@@ -54,25 +54,21 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
      * 通过本类方法查询权限
      */
     private void doByActivity() {
-        boolean isRefuse = ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE);
-        Logs.d("    53   " + isRefuse + "      " + ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE));
-
-
+        boolean isRefuse = ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE);//判断之前用户是否拒绝过
+        Logs.d(tag + "    58   " + isRefuse + "      " + ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE));
         //检查权限
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
-                == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             //进入到这里代表没有权限.
-            Logs.e("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+            Logs.e(tag + "   62");
             if (isRefuse) {
                 //已经禁止提示了
                 msg_one();
                 Toast.makeText(this, "您已禁止该权限，需要重新开启。", Toast.LENGTH_SHORT).show();
-                Logs.v("11111111111111111111111111111111111111111111");
+                Logs.v(tag + "   67");
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CODE);
-                Logs.v("2222222222222222222222222222222222222");
+                Logs.v(tag + "   70");
             }
-
         } else {
             call();
         }
@@ -99,17 +95,17 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case REQUEST_CODE:
-                Logs.v("3333333333333333333333333333333333333333333333");
+                Logs.v(tag + "   98");
                 boolean isGranted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
 
-                Logs.d(tag + "  94  " + grantResults[0]);
+                Logs.d(tag + " 101  " + grantResults[0]);
 
                 if (grantResults.length > 0 && isGranted) {
-                    Logs.w("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                    Logs.w(tag + "   104");
                     //用户同意授权
                     call();
                 } else {
-                    Logs.w("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+                    Logs.i(tag + "   108");
                     //用户拒绝授权
                     msg_one();
                 }
@@ -163,7 +159,6 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
         });
         builder.setNegativeButton("取消", null);
         builder.show();
-
     }
 
 
@@ -184,12 +179,9 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
                     s += permission + "\n";
                 }
                 Toast.makeText(PermissionActivity.this, s, Toast.LENGTH_SHORT).show();
-
                 //提示用户到系统去设置权限
                 msg_one();
             }
         });
     }
-
-
 }

@@ -72,12 +72,12 @@
         <activity
             android:name="com.unionpay.uppay.PayActivity"
             android:configChanges="orientation|keyboardHidden|keyboard"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.unionpay.UPPayWapActivity"
             android:configChanges="orientation|keyboardHidden|fontScale"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- +++++++++++++++++++++++++++++++++++++++    支付宝    ++++++++++++++++++++++++++++++++++ -->
         <activity
@@ -91,13 +91,41 @@
             android:exported="false"
             android:screenOrientation="behind" />
 
-        <!-- 微信支付回调Activity -->
+
+        <!-- +++++++++++++++++++++++++++++++++++++++    微信支付回调Activity    ++++++++++++++++++++++++++++++++++ -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
+
+        <!-- +++++++++++++++++++++++++++++++++++++++ QQ登录配置 +++++++++++++++++++++++++++++++++++++++ start-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--222222是腾讯的测试接口，可替换成你申请的APPId如：1106210336-->
+                <data android:scheme="tencent1106210336" />
+            </intent-filter>
+        </activity>
+        <!--SDK_V2.0引入了AssistActivity，开发者需在androidManifest.xml中注册。代码如下：-->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- +++++++++++++++++++++++++++++++++++++++ 微信登录配置 +++++++++++++++++++++++++++++++++++++++ -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true" />
+
         <activity android:name=".activity.PermissionActivity" />
         <activity android:name=".map.LocationActivity" />
         <activity android:name=".map.MarkerActivity" />
@@ -110,8 +138,9 @@
             android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity android:name=".activity.CodeCreateActivity" />
         <activity android:name=".zxing.main.MipcaActivityCapture" />
-        <activity android:name=".activity.AppInformationActivity"></activity>
-        <activity android:name=".activity.RvStrTwoActivity"></activity>
+        <activity android:name=".activity.AppInformationActivity" />
+        <activity android:name=".activity.RvStrTwoActivity" />
+        <activity android:name=".activity.Thirdlogin"></activity>
     </application>
 
 </manifest>
