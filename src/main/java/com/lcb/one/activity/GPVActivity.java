@@ -108,6 +108,11 @@ public class GPVActivity extends BaseActivity {
     private void onPwdChangedTest() {
         twiceInput.setOnPasswordChangedListener(new GridPasswordView.OnPasswordChangedListener() {
             @Override
+            public boolean beforeInput(int position) {
+                return false;
+            }
+
+            @Override
             public void onTextChanged(String psw) {
                 if (psw.length() == 6 && isFirst) {
                     twiceInput.clearPassword();

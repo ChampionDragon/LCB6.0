@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/tt"
+        android:layout_width="match_parent">
+
+        <TextView
+            style="@style/tt_tv"
+            android:layout_centerInParent="true"
+            android:text="自定义车牌输入" />
+
+        <ImageView
+            android:id="@+id/back_platenuminput"
+            style="@style/tt_iv"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/title_im" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:text="第一位省份缩写，第二位字母,3-7位字母或数字" />
+
+            <com.lcb.one.view.GridPasswordView.GridPasswordView
+                android:id="@+id/platenuminput_gpv"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                app:gpvPasswordLength="7" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="22dp"
+                android:text="如果前两位为粤Z，第七位可以填 港或澳。" />
+
+        </LinearLayout>
+
+        <com.lcb.one.view.XKeyboardView
+            android:id="@+id/platenuminput_kb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="#d1d5db"
+            android:keyBackground="@drawable/selector_key_background"
+            android:keyPreviewHeight="43dp"
+            android:keyPreviewLayout="@layout/key_preview_layout"
+            android:keyPreviewOffset="-43dp"
+            android:keyTextColor="#333333"
+            android:keyTextSize="16dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:shadowColor="#00000000"
+            android:shadowRadius="0.0"
+            android:visibility="gone"
+            app:deleteBackground="@drawable/selector_key_backspace_background"
+            app:deleteDrawable="@mipmap/sym_keyboard_delete" />
+    </FrameLayout>
+
+
+</LinearLayout>

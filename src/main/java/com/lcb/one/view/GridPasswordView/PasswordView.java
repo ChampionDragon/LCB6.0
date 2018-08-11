@@ -2,7 +2,6 @@ package com.lcb.one.view.GridPasswordView;
 
 
 interface PasswordView {
-
     //void setError(String error);
 
     String getPassWord();
@@ -10,6 +9,10 @@ interface PasswordView {
     void clearPassword();
 
     void setPassword(String password);
+
+    void appendPassword(String password);
+
+    void deletePassword();
 
     void setPasswordVisibility(boolean visible);
 

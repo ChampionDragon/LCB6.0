@@ -91,7 +91,6 @@
             android:exported="false"
             android:screenOrientation="behind" />
 
-
         <!-- +++++++++++++++++++++++++++++++++++++++    微信支付回调Activity    ++++++++++++++++++++++++++++++++++ -->
         <activity
             android:name=".wxapi.WXPayEntryActivity"
@@ -100,7 +99,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
-        <!-- +++++++++++++++++++++++++++++++++++++++ QQ登录配置 +++++++++++++++++++++++++++++++++++++++ start-->
+        <!-- +++++++++++++++++++++++++++++++++++++++ QQ登录配置 +++++++++++++++++++++++++++++++++++++++ start -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -110,11 +109,11 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <!--222222是腾讯的测试接口，可替换成你申请的APPId如：1106210336-->
+                <!-- 222222是腾讯的测试接口，可替换成你申请的APPId如：1106210336 -->
                 <data android:scheme="tencent1106210336" />
             </intent-filter>
         </activity>
-        <!--SDK_V2.0引入了AssistActivity，开发者需在androidManifest.xml中注册。代码如下：-->
+        <!-- SDK_V2.0引入了AssistActivity，开发者需在androidManifest.xml中注册。代码如下： -->
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -125,7 +124,6 @@
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true" />
-
         <activity android:name=".activity.PermissionActivity" />
         <activity android:name=".map.LocationActivity" />
         <activity android:name=".map.MarkerActivity" />
@@ -140,7 +138,8 @@
         <activity android:name=".zxing.main.MipcaActivityCapture" />
         <activity android:name=".activity.AppInformationActivity" />
         <activity android:name=".activity.RvStrTwoActivity" />
-        <activity android:name=".activity.Thirdlogin"></activity>
+        <activity android:name=".activity.Thirdlogin" />
+        <activity android:name=".activity.PlateNumberInputActivity"></activity>
     </application>
 
 </manifest>

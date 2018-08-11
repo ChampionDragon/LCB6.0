@@ -7,5 +7,5 @@ package com.lcb.one.view.GridPasswordView;
  **/
 
 public enum PasswordType {
-    NUMBER, TEXT, TEXTVISIBLE, TEXTWEB;
+    NUMBER, TEXT, TEXTVISIBLE, TEXTWEB,NULL;
 }

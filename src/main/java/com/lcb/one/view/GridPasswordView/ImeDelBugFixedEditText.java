@@ -3,6 +3,7 @@ package com.lcb.one.view.GridPasswordView;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
@@ -15,7 +16,6 @@ import android.widget.EditText;
  **/
 
 public class ImeDelBugFixedEditText extends EditText {
-
     private OnDelKeyEventListener delKeyEventListener;
 
     public ImeDelBugFixedEditText(Context context) {
@@ -32,13 +32,29 @@ public class ImeDelBugFixedEditText extends EditText {
 
     @Override
     public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
-        return new ZanyInputConnection(super.onCreateInputConnection(outAttrs), true);
+        InputConnection inputConnection = super.onCreateInputConnection(outAttrs);
+        if (inputConnection == null) {
+            return null;
+        }
+        return new ZanyInputConnection(inputConnection,
+                true);
     }
 
     private class ZanyInputConnection extends InputConnectionWrapper {
 
         public ZanyInputConnection(InputConnection target, boolean mutable) {
             super(target, mutable);
+        }
+
+        @Override
+        public boolean finishComposingText() {
+            try{
+                return super.finishComposingText();
+            }catch (Exception e){
+                e.printStackTrace();
+                return false;
+            }
+
         }
 
         @Override
@@ -68,9 +84,12 @@ public class ImeDelBugFixedEditText extends EditText {
     }
 
     public interface OnDelKeyEventListener {
-
         void onDeleteClick();
-
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        super.onTouchEvent(event);
+        return false;
+    }
 }

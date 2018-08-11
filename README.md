@@ -45,3 +45,14 @@
 
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/16.png)
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/17.png)
+
+##  自定义键盘输入车牌号码
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/18.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/19.png)
+
+
+
+
+
+

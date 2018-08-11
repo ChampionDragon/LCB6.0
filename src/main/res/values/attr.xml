@@ -9,6 +9,7 @@
         <attr name="gpvLineWidth" format="dimension"/>文字框边界长度
         <attr name="gpvPasswordLength" format="integer"/>设定文字框几个
         <attr name="gpvPasswordTransformation" format="string"/>密码覆盖的文字
+        <attr name="borderActiveColor" format="color" />边境活动
         <attr name="gpvPasswordType" format="enum">
             <enum name="numberPassword" value="0"/>
             <enum name="textPassword" value="1"/>
@@ -16,6 +17,13 @@
             <enum name="textWebPassword" value="3"/>
         </attr>
     </declare-styleable>
-
+    <!-- +++++++++++++++++++++++ XKeyboardView自定义键盘属性 +++++++++++++++++++++++ -->
+    <declare-styleable name="XKeyboardView">
+        <!-- 删除按键的图标 -->
+        <attr name="deleteDrawable" format="reference" />
+        <!-- 删除按键图标的颜色 -->
+        <attr name="deleteColor" format="color|reference" />
+        <attr name="deleteBackground" format="reference" />
+    </declare-styleable>
 
 </resources>
