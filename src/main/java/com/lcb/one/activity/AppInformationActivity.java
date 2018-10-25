@@ -25,7 +25,6 @@ public class AppInformationActivity extends BaseActivity {
             }
         });
         initData();
-
     }
 
     /**

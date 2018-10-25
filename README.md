@@ -51,7 +51,12 @@
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/18.png)
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/19.png)
 
+##  上啦刷新下拉加载
 
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/20.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/21.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/22.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/23.png)
 
 
 

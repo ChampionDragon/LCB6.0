@@ -9,11 +9,17 @@ import android.view.WindowManager;
 
 import com.lcb.one.constant.Constant;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 public class SmallUtil {
+    private static String tag = "SmallUtil";
+
     /**
      * 直接跳转到某个界面
      */
@@ -302,6 +308,75 @@ public class SmallUtil {
         }
 
         return true;
+    }
+
+    /**
+     * 应用程序运行命令获取 Root权限，设备必须已破解(获得ROOT权限)
+     *
+     * @param command 命令：String apkRoot="chmod 777 "+getPackageCodePath(); RootCommand(apkRoot);
+     * @return 读取的数据
+     */
+    public static String RootCommand(String command) {
+        String result = "";
+        Process process = null;
+        DataOutputStream os = null;
+        DataInputStream is = null;
+        try {
+            process = Runtime.getRuntime().exec("su");
+            os = new DataOutputStream(process.getOutputStream());
+            os.writeBytes(command + "\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            int aa = process.waitFor();
+//            Logs.w("waitFor():" + aa);
+            is = new DataInputStream(process.getInputStream());
+            byte[] buffer = new byte[is.available()];
+//            Logs.d("大小" + buffer.length);
+            is.read(buffer);
+            String out = new String(buffer);
+            result = out;
+            Logs.e(tag + "245返回:" + out);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Logs.e(tag + "205:\n" + e);
+            return e.toString();
+        } finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Logs.e(tag + "217:\n" + e);
+            }
+            process.destroy();
+        }
+        return result;
+    }
+
+    /**
+     * 获取子网掩码
+     */
+    public static String getnetmask() {
+        String result = RootCommand("ifconfig eth0");
+        String[] split = result.split(" ");
+        Logs.w(tag + "418:\n" + Arrays.toString(split) + "\n" + result);
+        Logs.e(split[5]);
+        return result;
+    }
+
+    /**
+     * 获取网关
+     */
+    public static String getgateWay() {
+        String result = RootCommand("ip route show");
+        String[] split = result.split(" ");
+        Logs.w(tag + "418:\n" + Arrays.toString(split) + "\n" + result);
+        Logs.e(split[5]);
+        return result;
     }
 
 

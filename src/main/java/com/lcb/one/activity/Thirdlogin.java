@@ -68,6 +68,13 @@ public class Thirdlogin extends BaseActivity implements View.OnClickListener {
             ToastUtil.showLong("请先将网络打开");
         }
 
+        findViewById(R.id.back_thirdlogin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void initView() {

@@ -12,20 +12,26 @@
         <TextView
             style="@style/tt_tv"
             android:layout_centerInParent="true"
-            android:text="RecyclerView二级Str" />
+            android:text="上加载下刷新" />
 
         <ImageView
-            android:id="@+id/rvstrtwo"
+            android:id="@+id/back_refreshload"
             style="@style/tt_iv"
             android:layout_alignParentLeft="true"
             android:background="@drawable/title_im" />
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycle_view"
+    <com.lcb.one.refreshlibrary.RefreshLayout
+        android:id="@+id/refreshload_refreshload"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:paddingTop="5dp"
-        android:scrollbars="vertical"/>
+        android:layout_height="match_parent">
+        <!-- 内容控件 -->
+        <ListView
+            android:id="@+id/refreshload_lv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </com.lcb.one.refreshlibrary.RefreshLayout>
+
+
 </LinearLayout>

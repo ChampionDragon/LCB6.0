@@ -13,6 +13,7 @@ import com.lcb.one.activity.CodeCreateActivity;
 import com.lcb.one.activity.GPVActivity;
 import com.lcb.one.activity.PermissionActivity;
 import com.lcb.one.activity.PlateNumberInputActivity;
+import com.lcb.one.activity.RefreshLoad;
 import com.lcb.one.activity.RvStrTwoActivity;
 import com.lcb.one.activity.Thirdlogin;
 import com.lcb.one.map.LocationActivity;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "RecyclerView二级Strings列表", new Intent(this, RvStrTwoActivity.class));
         addItem(myData, "第三方登录", new Intent(this, Thirdlogin.class));
         addItem(myData, "自定义车牌输入", new Intent(this, PlateNumberInputActivity.class));
+        addItem(myData, "上加载下刷新", new Intent(this, RefreshLoad.class));
         return myData;
     }
 
