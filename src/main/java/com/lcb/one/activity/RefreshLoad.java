@@ -274,6 +274,14 @@ public class RefreshLoad extends AutoLayoutActivity implements View.OnClickListe
         refreshLayout.beginLoadingMore();
     }
 
+    /*测试自动刷新加载*/
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+//        beginLoadingMore();
+//        beginRefreshing();
+    }
 
     @Override
     public void onClick(View v) {

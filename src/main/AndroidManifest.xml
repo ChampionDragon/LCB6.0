@@ -141,15 +141,19 @@
         <activity android:name=".activity.Thirdlogin" />
         <activity android:name=".activity.PlateNumberInputActivity" />
         <activity android:name=".activity.RefreshLoad" />
+        <activity android:name=".activity.RefreshLoadDelete" />
+        <activity android:name=".activity.RefreshLoadYrecycleview" />
 
-        <!--+++++++++++++++  注明要设计的初始屏幕尺寸  ++++++++++++++++++-->
+        <!-- +++++++++++++++  注明要设计的初始屏幕尺寸  ++++++++++++++++++ -->
         <meta-data
             android:name="design_width"
-            android:value="768"></meta-data>
+            android:value="768" />
         <meta-data
             android:name="design_height"
-            android:value="1280"></meta-data>
+            android:value="1280" />
 
+        <activity android:name=".activity.AddHeadViewActivity" />
+        <activity android:name=".activity.LoadingEmptyViewActivity"></activity>
     </application>
 
 </manifest>

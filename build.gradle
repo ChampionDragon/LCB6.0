@@ -53,4 +53,6 @@ dependencies {
     compile files('libs/okhttputils-2_6_2.jar')
     compile files('libs/okio-1.7.0.jar')
     compile files('libs/wechat-sdk-android-with-mta-1.3.4.jar')
+    compile 'cn.yuan.yu.recycleview:mylibrary:1.0.4'//YRecyclerView所需要的包
+    compile 'com.daimajia.swipelayout:library:1.2.0@aar'//YRecyclerView所需要的包
 }

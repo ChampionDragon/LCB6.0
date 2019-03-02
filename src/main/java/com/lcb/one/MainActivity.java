@@ -8,12 +8,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.lcb.one.activity.AddHeadViewActivity;
 import com.lcb.one.activity.AppInformationActivity;
 import com.lcb.one.activity.CodeCreateActivity;
 import com.lcb.one.activity.GPVActivity;
+import com.lcb.one.activity.LoadingEmptyViewActivity;
 import com.lcb.one.activity.PermissionActivity;
 import com.lcb.one.activity.PlateNumberInputActivity;
 import com.lcb.one.activity.RefreshLoad;
+import com.lcb.one.activity.RefreshLoadDelete;
+import com.lcb.one.activity.RefreshLoadYrecycleview;
 import com.lcb.one.activity.RvStrTwoActivity;
 import com.lcb.one.activity.Thirdlogin;
 import com.lcb.one.map.LocationActivity;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -69,6 +74,10 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "第三方登录", new Intent(this, Thirdlogin.class));
         addItem(myData, "自定义车牌输入", new Intent(this, PlateNumberInputActivity.class));
         addItem(myData, "上加载下刷新", new Intent(this, RefreshLoad.class));
+        addItem(myData, "YRecyclerView加载刷新侧滑删", new Intent(this, RefreshLoadDelete.class));
+        addItem(myData, "YRecyclerView上加载下刷新", new Intent(this, RefreshLoadYrecycleview.class));
+        addItem(myData, "YRecycleView实现列表添加头布局", new Intent(this, AddHeadViewActivity.class));
+        addItem(myData, "YRecycleView刷新加载更多空布局", new Intent(this, LoadingEmptyViewActivity.class));
         return myData;
     }
 

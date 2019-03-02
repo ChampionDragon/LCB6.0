@@ -2,6 +2,7 @@ package com.lcb.one.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -20,9 +21,9 @@ import java.util.List;
  **/
 public class RvStrTwoActivity extends BaseActivity implements View.OnClickListener {
     private RecyclerView mRecyclerView;
+    private RecyclerAdapter mAdapter;
     private List<DataBean> dataBeanList;
     private DataBean dataBean;
-    private RecyclerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +58,13 @@ public class RvStrTwoActivity extends BaseActivity implements View.OnClickListen
 
 
     private void setData() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new RecyclerAdapter(this, dataBeanList);
-        mRecyclerView.setAdapter(mAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(OrientationHelper.VERTICAL); //设置为垂直布局，这也是默认的
+        mRecyclerView.setLayoutManager(layoutManager);//设置布局管理器
+        mAdapter = new RecyclerAdapter(this, dataBeanList);//创建适配器
+        mRecyclerView.setAdapter(mAdapter);//设置Adapter
+//        mRecyclerView.setItemAnimator();//设置增加或删除条目的动画
+//        mRecyclerView.addItemDecoration();//设置分隔线
         //滚动监听
         mAdapter.setOnScrollListener(new RecyclerAdapter.OnScrollListener() {
             @Override

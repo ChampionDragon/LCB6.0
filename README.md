@@ -58,6 +58,10 @@
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/22.png)
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/23.png)
 
+##  上啦刷新下拉加载加上侧滑删除功能
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/24.png)
+
 
 
 
