@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.lcb.one">
 
     <!-- 打电话的权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 使用摄像头的权限 -->
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -17,7 +19,9 @@
     <!-- +++++++++++++++++++++++++++++++地图+++++++++++++++++++++++++++++++++++++++++++ -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 挂载、反挂载外部文件系统 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,8 +31,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
     <!-- 银联支付 -->
     <uses-permission android:name="org.simalliance.openmobileapi.SMARTCARD" />
     <uses-permission android:name="android.permission.NFC" />
@@ -141,8 +149,6 @@
         <activity android:name=".activity.Thirdlogin" />
         <activity android:name=".activity.PlateNumberInputActivity" />
         <activity android:name=".activity.RefreshLoad" />
-        <activity android:name=".activity.RefreshLoadDelete" />
-        <activity android:name=".activity.RefreshLoadYrecycleview" />
 
         <!-- +++++++++++++++  注明要设计的初始屏幕尺寸  ++++++++++++++++++ -->
         <meta-data
@@ -152,8 +158,10 @@
             android:name="design_height"
             android:value="1280" />
 
-        <activity android:name=".activity.AddHeadViewActivity" />
-        <activity android:name=".activity.LoadingEmptyViewActivity"></activity>
+        <activity android:name=".activity.RvCard" />
+        <activity android:name=".activity.MultiTypeActivity" />
+        <activity android:name=".activity.CustomMultiTypeActivity" />
+        <activity android:name=".activity.TableLayoutActivity"></activity>
     </application>
 
 </manifest>

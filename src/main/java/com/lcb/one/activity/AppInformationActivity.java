@@ -1,15 +1,20 @@
 package com.lcb.one.activity;
 
+import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.lcb.one.R;
 import com.lcb.one.adapter.InfoAdapter;
 import com.lcb.one.base.BaseActivity;
 import com.lcb.one.bean.InfoBean;
+import com.lcb.one.listener.PermissionListener;
 import com.lcb.one.util.SystemUtil;
+
+import java.util.List;
 
 public class AppInformationActivity extends BaseActivity {
     ListView lv;
@@ -24,7 +29,28 @@ public class AppInformationActivity extends BaseActivity {
                 finish();
             }
         });
-        initData();
+        askForPermission();
+    }
+
+    /*动态申请权限*/
+    private void askForPermission() {
+        requestRunPermisssion(new String[]{Manifest.permission.READ_PHONE_STATE}, new PermissionListener() {
+            @Override
+            public void onGranted() {
+                initData();
+            }
+
+            @Override
+            public void onDenied(List<String> deniedPermission) {
+                String s = "被拒绝的权限：";
+                for (String permission : deniedPermission) {
+                    s += permission + "\n";
+                }
+                Toast.makeText(AppInformationActivity.this, s, Toast.LENGTH_SHORT).show();
+                //提示用户到系统去设置权限
+                msg_one();
+            }
+        });
     }
 
     /**

@@ -1,7 +1,11 @@
 package com.lcb.one.base;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -21,7 +25,7 @@ public class BaseActivity extends AppCompatActivity {
     protected ProgressDialog mProgressDialog;
     public AsyncTaskExecutor executor;
     private PermissionListener mListener;
-    private static final int PERMISSION_REQUESTCODE = 11;
+    private static final int PERMISSION_REQUESTCODE = 11;//动态申请权限的码
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,11 +77,11 @@ public class BaseActivity extends AppCompatActivity {
                     //存放没授权的权限
                     List<String> deniedPermissions = new ArrayList<>();
                     for (int i = 0; i < grantResults.length; i++) {
-                            int grantResult = grantResults[i];
-                            String permission = permissions[i];
-                            if (grantResult != PackageManager.PERMISSION_GRANTED) {
-                                deniedPermissions.add(permission);
-                            }
+                        int grantResult = grantResults[i];
+                        String permission = permissions[i];
+                        if (grantResult != PackageManager.PERMISSION_GRANTED) {
+                            deniedPermissions.add(permission);
+                        }
                     }
                     if (deniedPermissions.isEmpty()) {
                         //说明都授权了
@@ -90,6 +94,28 @@ public class BaseActivity extends AppCompatActivity {
             default:
                 break;
         }
+    }
+
+
+    /*提醒用户不开通权限的后果*/
+    public void msg_one() {
+        //当拒绝了授权后，为提升用户体验，可以以弹窗的方式引导用户到设置中去进行设置
+        new AlertDialog.Builder(this)
+                .setTitle("警告")
+                .setMessage("需要开启权限才能使用此功能")
+                .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //引导用户到设置中去进行设置
+                        Intent intent = new Intent();
+                        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                        intent.setData(Uri.fromParts("package", getPackageName(), null));
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .create()
+                .show();
     }
 
 

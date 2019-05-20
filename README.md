@@ -58,9 +58,27 @@
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/22.png)
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/23.png)
 
-##  上啦刷新下拉加载加上侧滑删除功能
+##  上拉刷新下拉加载加上侧滑删除功能
 
 ![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/24.png)
+
+
+##  自定义控件Tablelayout与TableView
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/25.png)
+
+##  上拉刷新下拉加载多种自定义ViewHolder混合并且可以添加Header和Footer
+
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/26.png)
+![程序的演示图片](https://github.com/ChampionDragon/LCB6.0/blob/debug/UI/27.png)
+
+
+
+
+
+
+
+
 
 
 

@@ -1,5 +1,6 @@
 package com.lcb.one;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,19 +8,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
-import com.lcb.one.activity.AddHeadViewActivity;
 import com.lcb.one.activity.AppInformationActivity;
 import com.lcb.one.activity.CodeCreateActivity;
+import com.lcb.one.activity.CustomMultiTypeActivity;
 import com.lcb.one.activity.GPVActivity;
-import com.lcb.one.activity.LoadingEmptyViewActivity;
+import com.lcb.one.activity.MultiTypeActivity;
 import com.lcb.one.activity.PermissionActivity;
 import com.lcb.one.activity.PlateNumberInputActivity;
 import com.lcb.one.activity.RefreshLoad;
-import com.lcb.one.activity.RefreshLoadDelete;
-import com.lcb.one.activity.RefreshLoadYrecycleview;
+import com.lcb.one.activity.RvCard;
 import com.lcb.one.activity.RvStrTwoActivity;
+import com.lcb.one.activity.TableLayoutActivity;
 import com.lcb.one.activity.Thirdlogin;
+import com.lcb.one.base.BaseActivity;
+import com.lcb.one.listener.PermissionListener;
 import com.lcb.one.map.LocationActivity;
 import com.lcb.one.map.MarkerActivity;
 import com.lcb.one.map.NaviActivity;
@@ -31,7 +35,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -74,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "第三方登录", new Intent(this, Thirdlogin.class));
         addItem(myData, "自定义车牌输入", new Intent(this, PlateNumberInputActivity.class));
         addItem(myData, "上加载下刷新", new Intent(this, RefreshLoad.class));
-        addItem(myData, "YRecyclerView加载刷新侧滑删", new Intent(this, RefreshLoadDelete.class));
-        addItem(myData, "YRecyclerView上加载下刷新", new Intent(this, RefreshLoadYrecycleview.class));
-        addItem(myData, "YRecycleView实现列表添加头布局", new Intent(this, AddHeadViewActivity.class));
-        addItem(myData, "YRecycleView刷新加载更多空布局", new Intent(this, LoadingEmptyViewActivity.class));
+        addItem(myData, "加载刷新小卡片模式", new Intent(this, RvCard.class));
+        addItem(myData, "复杂数据类型的RecyclerView", new Intent(this, MultiTypeActivity.class));
+        addItem(myData, "复杂类型RecyclerView(避免反射弊端)", new Intent(this, CustomMultiTypeActivity.class));
+        addItem(myData, "自定义控件Tablelayout与TableView", new Intent(this, TableLayoutActivity.class));
         return myData;
     }
 
@@ -98,6 +101,5 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     };
-
 
 }

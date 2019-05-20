@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * 已授权、未授权的接口回调
  */
-public interface PermissionListener{
+public interface PermissionListener {
 
     void onGranted();//已授权
 

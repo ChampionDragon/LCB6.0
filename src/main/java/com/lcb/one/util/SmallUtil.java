@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.lcb.one.constant.Constant;
 
@@ -378,6 +379,37 @@ public class SmallUtil {
         Logs.e(split[5]);
         return result;
     }
+
+    // 计算出该TextView中文字的长度(像素)
+    public static float measureTextViewWidth(TextView textView, String text) {
+        // 得到使用该paint写上text的时候,像素为多少
+        return textView.getPaint().measureText(text);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

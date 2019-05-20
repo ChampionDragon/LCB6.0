@@ -13,8 +13,6 @@
 
     <!-- +++++++++++++++++++++=  common  =++++++++++++++++++++++++++++++-->
     <string name="scan_text">请对准二维码进行扫描</string>
-    <string name="title_activity_refresh_load_delete">RefreshLoadDelete</string>
-    <string name="title_activity_refresh_load_yrecycleview">RefreshLoadYrecycleview</string>
 
 
 </resources>

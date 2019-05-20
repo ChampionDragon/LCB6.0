@@ -1,10 +1,12 @@
 package com.lcb.one.map;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -22,10 +24,14 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.lcb.one.MainActivity;
 import com.lcb.one.R;
 import com.lcb.one.base.BaseActivity;
 import com.lcb.one.listener.OrientationListener;
+import com.lcb.one.listener.PermissionListener;
 import com.lcb.one.util.Logs;
+
+import java.util.List;
 
 
 public class LocationActivity extends BaseActivity implements View.OnClickListener {
@@ -41,7 +47,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     private MyLocationConfiguration.LocationMode mCurrentMode = MyLocationConfiguration.LocationMode.NORMAL;//当前图标类型
     BitmapDescriptor mCurrentMarker;//当前图标UI
     boolean ismarker;
-    String stateStr="satellite";
+    String stateStr = "satellite";
     /*方向传感器的监听器*/
     private OrientationListener orientationListener;
     /*方向传感器X方向的值*/
@@ -52,6 +58,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        askForPermission();
         initView();
         initmapView();
         startLocating();
@@ -114,7 +121,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
                 mMap.setMyLocationConfiguration(myLocationConfiguration);
             }
 
-          /*只有设置了setMyLocationData数据setMyLocationConfiguration定位的图标才会显示出来*/
+            /*只有设置了setMyLocationData数据setMyLocationConfiguration定位的图标才会显示出来*/
 
 
             // map view 销毁后不在处理新接收的位置
@@ -142,7 +149,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
      */
     private void setLocation() {
         LatLng latLng = new LatLng(latitude, longitude);
-            /*将视图中心移动到定位点*/
+        /*将视图中心移动到定位点*/
         MapStatus mapStatus = new MapStatus.Builder().target(latLng)
                 .zoom(18)
                 .build();
@@ -187,7 +194,7 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
      * 设置显示图标的类型
      */
     private void setMarker() {
-                /*配置定位图层显示方式*/
+        /*配置定位图层显示方式*/
 //        mode - 定位图层显示方式, 默认为 LocationMode.NORMAL 普通态
 //        enableDirection - 是否允许显示方向信息
 //        customMarker - 设置用户自定义定位图标，可以为 null
@@ -250,21 +257,21 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
 
     /*设置地图类型*/
     private void setState() {
-        switch (stateStr){
+        switch (stateStr) {
             case "satellite":
                 state.setText("普通地图");
-                stateStr="normal";
+                stateStr = "normal";
                 mMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
                 break;
             case "normal":
                 state.setText("3D地图");
-                stateStr="3D";
+                stateStr = "3D";
                 mMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
                 mMap.setBuildingsEnabled(false);
                 break;
             case "3D":
                 state.setText("卫星地图");
-                stateStr="satellite";
+                stateStr = "satellite";
                 mMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
                 mMap.setBuildingsEnabled(true);
                 break;
@@ -450,4 +457,23 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
     }
 
 
+    /*申请地图权限*/
+    private void askForPermission() {
+        requestRunPermisssion(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, new PermissionListener() {
+            @Override
+            public void onGranted() {
+            }
+
+            @Override
+            public void onDenied(List<String> deniedPermission) {
+                String s = "被拒绝的权限：";
+                for (String permission : deniedPermission) {
+                    s += permission + "\n";
+                }
+                Toast.makeText(LocationActivity.this, s, Toast.LENGTH_SHORT).show();
+                //提示用户到系统去设置权限
+                msg_one();
+            }
+        });
+    }
 }

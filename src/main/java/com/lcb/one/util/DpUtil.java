@@ -70,5 +70,11 @@ public class DpUtil {
         return (int) (pxValue / scale + 0.5f);
     }
 
+    public static float dip2px(Resources resources, float dpSize) {
+        return getDisplayMetrics(resources).density * dpSize;
+    }
 
+    public static DisplayMetrics getDisplayMetrics(Resources resources) {
+        return resources.getDisplayMetrics();
+    }
 }

@@ -115,35 +115,11 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
 
 
     /**
-     * 第一种警告的样式
-     */
-    private void msg_one() {
-        //当拒绝了授权后，为提升用户体验，可以以弹窗的方式引导用户到设置中去进行设置
-        new AlertDialog.Builder(this)
-                .setTitle("警告")
-                .setMessage("需要开启权限才能使用此功能")
-                .setPositiveButton("设置", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //引导用户到设置中去进行设置
-                        Intent intent = new Intent();
-                        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                        intent.setData(Uri.fromParts("package", getPackageName(), null));
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
-    }
-
-
-    /**
      * 第二种警告样式
      */
     private void msg_two() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(" 如果未授权将导致一些功能无法实现！").setTitle("警告");
+        builder.setMessage("如果未授权将导致一些功能无法实现！").setTitle("警告");
         builder.setPositiveButton("去手动授权", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -162,6 +138,9 @@ public class PermissionActivity extends BaseActivity implements View.OnClickList
     }
 
 
+    /**
+     * 通过BaseActivity动态申请权限
+     */
     private void doByBaseActivity() {
         requestRunPermisssion(new String[]{Manifest.permission.CALL_PHONE, Manifest.permission.CAMERA}, new PermissionListener() {
             @Override
