@@ -158,10 +158,26 @@
             android:name="design_height"
             android:value="1280" />
 
+        <!-- +++++++++++++++  安卓7.0文件共享问题  ++++++++++++++++++ -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.android7.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".activity.RvCard" />
         <activity android:name=".activity.MultiTypeActivity" />
         <activity android:name=".activity.CustomMultiTypeActivity" />
-        <activity android:name=".activity.TableLayoutActivity"></activity>
+        <activity android:name=".activity.TableLayoutActivity" />
+        <activity
+            android:name=".activity.TableViewActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.xmlJsonActivity" />
+        <activity android:name=".activity.FileProvider7Activity"></activity>
     </application>
 
 </manifest>

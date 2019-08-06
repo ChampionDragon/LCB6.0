@@ -70,6 +70,7 @@ public class RvCard extends AppCompatActivity {
         mRecyclerView.setSwipeRefreshColors(0xFF437845, 0xFFE44F98, 0xFF2FAC21);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         mRecyclerView.setAdapter(mAdapter);
+        /*刷新按钮*/
         mRecyclerView.addRefreshAction(new Action() {
             @Override
             public void onAction() {
@@ -77,6 +78,7 @@ public class RvCard extends AppCompatActivity {
             }
         });
 
+        /*加载更多按钮*/
         mRecyclerView.addLoadMoreAction(new Action() {
             @Override
             public void onAction() {
@@ -85,6 +87,7 @@ public class RvCard extends AppCompatActivity {
             }
         });
 
+        /*点击加载错误按钮继续加载*/
         mRecyclerView.addLoadMoreErrorAction(new Action() {
             @Override
             public void onAction() {

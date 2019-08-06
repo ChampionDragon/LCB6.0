@@ -57,7 +57,7 @@ import java.util.List;
 
 
 public class PoiSearchActivity extends BaseActivity implements View.OnClickListener {
-    AutoCompleteTextView tv;
+    private AutoCompleteTextView autoCompleteTextView;
     private MapView mapwiew;
     private BaiduMap mMap;
     private LocationClient mLocationClient;
@@ -71,7 +71,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
     /*方向传感器X方向的值*/
     private int mXDirection;
     private String city;
-    private ArrayAdapter<String> sugAdapter;//提示列表的适配器
+    private ArrayAdapter<String> sugAdapter;//提示列表的适配器AutoCompleteTextView
     private PoiSearch mPoiSearch;//搜索模块
     private SuggestionSearch mSuggestionSearch;//建议搜索模块
     private List<String> suggest;//返回的数据结果清单
@@ -113,7 +113,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
                 }
             }
             sugAdapter = new ArrayAdapter<>(PoiSearchActivity.this, android.R.layout.simple_list_item_1, suggest);
-            tv.setAdapter(sugAdapter);
+            autoCompleteTextView.setAdapter(sugAdapter);
             sugAdapter.notifyDataSetChanged();
         }
     };
@@ -228,10 +228,10 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
     private void initAutoCompleteTextView() {
 //        sugAdapter = new ArrayAdapter<>(this,
 //                android.R.layout.simple_list_item_1);
-//        tv.setAdapter(sugAdapter);
-        tv.setThreshold(1);//设置几个字开始有提示
+//        autoCompleteTextView.setAdapter(sugAdapter);
+        autoCompleteTextView.setThreshold(1);//设置几个字开始有提示
         /*当输入关键字变化时，动态更新建议列表*/
-        tv.addTextChangedListener(new TextWatcher() {
+        autoCompleteTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -357,7 +357,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
 
     private void initView() {
         mapwiew = (MapView) findViewById(R.id.poi_map);
-        tv = (AutoCompleteTextView) findViewById(R.id.poi_tv);
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.poi_tv);
         findViewById(R.id.back_poi).setOnClickListener(this);
         findViewById(R.id.poi_city).setOnClickListener(this);
         findViewById(R.id.poi_Bound).setOnClickListener(this);
@@ -377,7 +377,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
                 city();
                 break;
             case R.id.poi_iv:
-                tv.setText("");
+                autoCompleteTextView.setText("");
                 break;
             case R.id.back_poi:
                 finish();
@@ -405,7 +405,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
         //地理范围数据结构，由西南以及东北坐标点确认
         searchbound = new LatLngBounds.Builder().include(southwest).include(northeast)
                 .include(northeast).build();
-        mPoiSearch.searchInBound(new PoiBoundSearchOption().bound(searchbound).keyword(tv.getText().toString()).pageNum(0));
+        mPoiSearch.searchInBound(new PoiBoundSearchOption().bound(searchbound).keyword(autoCompleteTextView.getText().toString()).pageNum(0));
     }
 
 
@@ -415,7 +415,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
     private void nearBy() {
         searchType = 2;// comprehensive：安综合排序 distance：按距离排序
         PoiNearbySearchOption option = new PoiNearbySearchOption().radius(radius)//范围半径
-                .keyword(tv.getText().toString()).sortType(PoiSortType.distance_from_near_to_far)//搜索结果排序规则
+                .keyword(autoCompleteTextView.getText().toString()).sortType(PoiSortType.distance_from_near_to_far)//搜索结果排序规则
                 .location(center).pageNum(0);
         mPoiSearch.searchNearby(option);
     }
@@ -423,7 +423,7 @@ public class PoiSearchActivity extends BaseActivity implements View.OnClickListe
     /*通过城市的方法查询*/
     private void city() {
         searchType = 1;
-        String key = tv.getText().toString();
+        String key = autoCompleteTextView.getText().toString();
         mPoiSearch.searchInCity(new PoiCitySearchOption().city(city).keyword(key).pageNum(0));
     }
 

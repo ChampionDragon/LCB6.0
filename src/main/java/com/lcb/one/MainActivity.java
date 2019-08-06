@@ -1,6 +1,5 @@
 package com.lcb.one;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +7,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import com.lcb.one.activity.AppInformationActivity;
 import com.lcb.one.activity.CodeCreateActivity;
 import com.lcb.one.activity.CustomMultiTypeActivity;
+import com.lcb.one.activity.FileProvider7Activity;
 import com.lcb.one.activity.GPVActivity;
 import com.lcb.one.activity.MultiTypeActivity;
 import com.lcb.one.activity.PermissionActivity;
@@ -21,9 +20,9 @@ import com.lcb.one.activity.RefreshLoad;
 import com.lcb.one.activity.RvCard;
 import com.lcb.one.activity.RvStrTwoActivity;
 import com.lcb.one.activity.TableLayoutActivity;
+import com.lcb.one.activity.TableViewActivity;
 import com.lcb.one.activity.Thirdlogin;
-import com.lcb.one.base.BaseActivity;
-import com.lcb.one.listener.PermissionListener;
+import com.lcb.one.activity.xmlJsonActivity;
 import com.lcb.one.map.LocationActivity;
 import com.lcb.one.map.MarkerActivity;
 import com.lcb.one.map.NaviActivity;
@@ -80,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
         addItem(myData, "加载刷新小卡片模式", new Intent(this, RvCard.class));
         addItem(myData, "复杂数据类型的RecyclerView", new Intent(this, MultiTypeActivity.class));
         addItem(myData, "复杂类型RecyclerView(避免反射弊端)", new Intent(this, CustomMultiTypeActivity.class));
-        addItem(myData, "自定义控件Tablelayout与TableView", new Intent(this, TableLayoutActivity.class));
+        addItem(myData, "自定义控件Tablelayout", new Intent(this, TableLayoutActivity.class));
+        addItem(myData, "自定义控件TableView", new Intent(this, TableViewActivity.class));
+        addItem(myData, "xml和json互换文件下载上传", new Intent(this, xmlJsonActivity.class));
+        addItem(myData, "7.0共享文件图片加水印鲁班压缩图片", new Intent(this, FileProvider7Activity.class));
         return myData;
     }
 

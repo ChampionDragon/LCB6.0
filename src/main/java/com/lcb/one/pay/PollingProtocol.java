@@ -4,7 +4,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 
-import com.alipay.sdk.util.LogUtils;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.ServerError;

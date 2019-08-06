@@ -32,7 +32,7 @@ public class AppInformationActivity extends BaseActivity {
         askForPermission();
     }
 
-    /*动态申请权限*/
+    /*动态申请权限:访问电话状态*/
     private void askForPermission() {
         requestRunPermisssion(new String[]{Manifest.permission.READ_PHONE_STATE}, new PermissionListener() {
             @Override

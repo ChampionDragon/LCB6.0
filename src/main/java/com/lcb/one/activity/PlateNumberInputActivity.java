@@ -81,12 +81,12 @@ public class PlateNumberInputActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(String psw) {
-                Log.e("PlateNumberInputActivity", "onTextChanged：" + psw);
+                Log.e("lcb", "onTextChanged：" + psw);
             }
 
             @Override
             public void onInputFinish(String psw) {
-                Log.e("PlateNumberInputActivity", "onInputFinish：" + psw);
+                Log.e("lcb", "onInputFinish：" + psw);
             }
         });
     }

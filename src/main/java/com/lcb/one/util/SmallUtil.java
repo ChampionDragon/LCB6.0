@@ -2,6 +2,10 @@ package com.lcb.one.util;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -10,10 +14,13 @@ import android.widget.TextView;
 
 import com.lcb.one.constant.Constant;
 
+import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -234,7 +241,7 @@ public class SmallUtil {
      */
     public static boolean isNumer(String str) {
         for (int i = 0; i < str.length(); i++) {
-           /*str.charAt(i)返回指定索引处的 char 值。*/
+            /*str.charAt(i)返回指定索引处的 char 值。*/
             if (!Character.isDigit(str.charAt(i))) {
                 /*Character.isDigit 确定指定字符是否为数字*/
                 return false;
@@ -387,29 +394,68 @@ public class SmallUtil {
     }
 
 
+    /*++++++++++++++++++++++   图片加水印   +++++++++++++++++++++*/
 
+    /**
+     * 给一张Bitmap添加水印文字。
+     *
+     * @param src      源图片
+     * @param content  水印文本
+     * @param textSize 水印字体大小 ，单位pix。
+     * @param color    水印字体颜色。
+     * @param x        起始坐标x
+     * @param y        起始坐标y
+     * @param recycle  是否回收
+     * @return 已经添加水印后的Bitmap。
+     */
+    public static Bitmap addTextWatermark(Bitmap src, String content, int textSize, int color, float x, float y, boolean recycle) {
+        if (isEmptyBitmap(src) || content == null)
+            return null;
+        Bitmap ret = src.copy(src.getConfig(), true);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Canvas canvas = new Canvas(ret);
+        paint.setColor(color);
+        paint.setTextSize(textSize);
+        Rect bounds = new Rect();
+        paint.getTextBounds(content, 0, content.length(), bounds);
+        canvas.drawText(content, x, y, paint);
+        if (recycle && !src.isRecycled())
+            src.recycle();
+        return ret;
+    }
 
+    /**
+     * 保存图片到文件File。
+     *
+     * @param src     源图片
+     * @param file    要保存到的文件
+     * @param format  格式
+     * @param recycle 是否回收
+     * @return true 成功 false 失败
+     */
+    public static boolean save(Bitmap src, File file, Bitmap.CompressFormat format, boolean recycle) {
+        if (isEmptyBitmap(src))
+            return false;
 
+        OutputStream os;
+        boolean ret = false;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+            ret = src.compress(format, 100, os);
+            if (recycle && !src.isRecycled())
+                src.recycle();
+        } catch (IOException e) {
+            Logs.e(tag+"448:"+e);
+        }
 
+        return ret;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * Bitmap对象是否为空。
+     */
+    public static boolean isEmptyBitmap(Bitmap src) {
+        return src == null || src.getWidth() == 0 || src.getHeight() == 0;
+    }
 
 }

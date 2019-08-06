@@ -11,7 +11,7 @@ import com.lcb.one.util.Logs;
 /**
  * Description:图片的ViewHolder
  * AUTHOR: Champion Dragon
- * created at 2019/5/7 0007
+ * created at 2019/5/7
  **/
 public class ImageViewHolder extends BaseViewHolder<String> {
 

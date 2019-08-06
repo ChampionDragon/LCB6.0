@@ -24,7 +24,7 @@ import java.util.List;
 public class BaseActivity extends AppCompatActivity {
     protected ProgressDialog mProgressDialog;
     public AsyncTaskExecutor executor;
-    private PermissionListener mListener;
+    private PermissionListener mListener;//已授权、未授权的接口回调
     private static final int PERMISSION_REQUESTCODE = 11;//动态申请权限的码
 
     protected void onCreate(Bundle savedInstanceState) {

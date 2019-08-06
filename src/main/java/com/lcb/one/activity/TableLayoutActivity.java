@@ -24,13 +24,12 @@ import java.util.Random;
 public class TableLayoutActivity extends AppCompatActivity {
     private List<Content> contentList;
     private TableLayout tableLayout;
-    private TableView tableView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_layout);
-        initTableView();
         tableLayout = (TableLayout) findViewById(R.id.main_table);
         initContent();
 //        firstRowAsTitle();
@@ -55,16 +54,7 @@ public class TableLayoutActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void initTableView() {
-        tableView = (TableView) findViewById(R.id.table);
-        tableView.clearTableContents()
-                .setHeader("区域", "人数", "占比", "测试")
-                .addContent("北京", "50", "50%", "测试")
-                .addContent("上海", "30", "30%", "测试")
-                .addContent("广东", "20", "20%", "测试")
-                .addContent("深圳", "10", "10%", "测试")
-                .refreshTable();
-    }
+
 
     private void initContent() {
         contentList = new ArrayList<>();

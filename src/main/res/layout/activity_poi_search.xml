@@ -91,8 +91,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/ic_action_search"
-                android:hint="请输入搜索内容"
-                />
+                android:hint="请输入搜索内容" />
             <LinearLayout
                 android:id="@+id/poi_ll_ll"
                 android:orientation="horizontal"

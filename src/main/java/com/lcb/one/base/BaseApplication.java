@@ -11,6 +11,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.baidu.mapapi.SDKInitializer;
+import com.lcb.one.constant.Constant;
 import com.lcb.one.constant.SpKey;
 import com.lcb.one.util.Logs;
 import com.lcb.one.util.ToastUtil;
@@ -48,6 +49,7 @@ public class BaseApplication extends Application {
         context = getApplicationContext();
         sp = SpUtil.getInstance(SpKey.SP_name, MODE_PRIVATE);
         initUDP();
+        createDir();
     }
 
 
@@ -59,6 +61,13 @@ public class BaseApplication extends Application {
         lock = wfm.createMulticastLock("wifi lcb");
     }
 
+    /*创建文件夹*/
+    private void createDir() {
+//        Logs.d("文件夹状态:"+Constant.fileLCB.exists());
+        if (!Constant.fileLCB.exists()) {
+            Constant.fileLCB.mkdirs();
+        }
+    }
 
     /**
      * 退出整个程序

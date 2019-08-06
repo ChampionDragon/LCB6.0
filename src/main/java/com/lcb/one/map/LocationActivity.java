@@ -24,7 +24,6 @@ import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-import com.lcb.one.MainActivity;
 import com.lcb.one.R;
 import com.lcb.one.base.BaseActivity;
 import com.lcb.one.listener.OrientationListener;
@@ -459,9 +458,11 @@ public class LocationActivity extends BaseActivity implements View.OnClickListen
 
     /*申请地图权限*/
     private void askForPermission() {
-        requestRunPermisssion(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, new PermissionListener() {
+        requestRunPermisssion(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                new PermissionListener() {
             @Override
             public void onGranted() {
+                //执行相应的地图操作
             }
 
             @Override

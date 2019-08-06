@@ -4,8 +4,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 创建线程池
- */
+ * Description: 创建线程池,最多四条线程同时开启，防止程序OOM
+ * AUTHOR: Champion Dragon
+ * created at 2019/5/29
+ **/
 public class AsyncTaskExecutor {
     private static AsyncTaskExecutor mInstance = null;
     private static final int maxExecutor = 4;

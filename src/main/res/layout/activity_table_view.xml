@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.lcb.one.view.TableView
+        android:id="@+id/table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/blueSky"
+        app:dividerColor="#e1e1e1"
+        app:dividerWidth="1px"
+        app:headerColor="#ff0000"
+        app:headerTextColor="#006000"
+        app:headerTextSize="18dp"
+        app:rowHeight="36dp"
+        app:textColor="#0000ff"
+        app:textSize="16dp"
+        app:unitColumnWidth="0dp" />
+
+</LinearLayout>

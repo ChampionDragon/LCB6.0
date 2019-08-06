@@ -23,7 +23,7 @@ import com.lcb.one.constant.Constant;
  * Description:复杂数据类型的RecyclerView(避免反射弊端)
  * 需要实现 IViewHolderFactory 接口类来管理viewtype 和 ViewHolder 的映射关系。
  * AUTHOR: Champion Dragon
- * created at 2019/5/7 0007
+ * created at 2019/5/7
  **/
 public class CustomMultiTypeActivity extends AppCompatActivity implements IViewHolderFactory {
 

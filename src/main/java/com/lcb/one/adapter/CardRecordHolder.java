@@ -68,6 +68,8 @@ public class CardRecordHolder extends BaseViewHolder<CardRecord> {
     public void onItemLongClick(CardRecord mData) {
         super.onItemLongClick(mData);
         //长按事件
-        rvListener.setdata(new Rvdata(getAdapterPosition()));
+        if (rvListener!=null) {
+            rvListener.setdata(new Rvdata(getAdapterPosition()));
+        }
     }
 }

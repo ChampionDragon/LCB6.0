@@ -1,6 +1,10 @@
 package com.lcb.one.constant;
 
+import android.os.Environment;
+
 import com.lcb.one.util.TimeUtil;
+
+import java.io.File;
 
 /**
  * Description: 常量类
@@ -18,6 +22,10 @@ public class Constant {
 
     /* 文件夹 */
     public final static String fileRoot = "百度地图功能调试";//此APP的根文件夹
+    //根文件夹
+    public final static File fileDir = new File(Environment.getExternalStorageDirectory().toString());
+    //龙成斌6.0文件夹
+    public final static File fileLCB = new File(fileDir.getAbsolutePath(), "龙成斌6.0");
 
 
     /*后台交互的网址*/
